@@ -55,7 +55,7 @@ const Hero = () => {
           </h1>
           
           <p className="animate-fade-up opacity-0 animate-delay-200 text-xl text-gray-600 max-w-2xl mx-auto text-balance">
-            Organize your thoughts, collaborate seamlessly, and discover insights with our intuitive platform.
+            Organize your thoughts, collaborate seamlessly, and discover insights with JotIt.
           </p>
           
           <div className="animate-fade-up opacity-0 animate-delay-300 flex flex-col md:flex-row gap-4 justify-center pt-6">
@@ -132,7 +132,7 @@ const Hero = () => {
                   <div className="relative h-full overflow-hidden rounded-lg">
                     {/* Dashboard heading */}
                     <div className="absolute top-0 left-0 right-0 z-10 p-4 bg-gradient-to-b from-white via-white to-transparent">
-                      <h2 className="text-2xl font-bold text-gray-900">Welcome to Your Dashboard</h2>
+                      <h2 className="text-2xl font-bold text-gray-900">Welcome to Your JotIt Dashboard</h2>
                       <p className="text-sm text-gray-600">Here's how your team is making progress today</p>
                     </div>
                     

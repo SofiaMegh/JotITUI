@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
 
 const testimonials = [
   {
@@ -30,7 +31,7 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section id="testimonials" className="py-20 px-6">
+    <section id="testimonials" className="py-20 px-6 bg-gray-50/50">
       <div className="max-w-7xl mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-sm font-medium text-gray-500 tracking-wide uppercase">
@@ -40,32 +41,34 @@ const Testimonials = () => {
             Loved by thousands of teams
           </h2>
           <p className="mt-4 text-xl text-gray-600">
-            See why people choose our platform for their productivity needs
+            See why people choose JotIt for their productivity needs
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {testimonials.map((testimonial, index) => (
-            <div 
-              key={index} 
-              className="testimonial-hover bg-white rounded-xl p-8 border border-gray-100 shadow-soft relative"
+            <Card 
+              key={index}
+              className="border border-gray-100 shadow-none hover:shadow-md transition-all duration-300 bg-white/70 backdrop-blur-sm"
             >
-              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-gray-50/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-xl pointer-events-none"></div>
-              
-              <div className="flex flex-col h-full">
-                <p className="text-gray-700 mb-6 flex-grow">"{testimonial.quote}"</p>
-                
-                <div className="flex items-center">
-                  <div className="flex-shrink-0 h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 font-medium">
-                    {testimonial.avatar}
-                  </div>
-                  <div className="ml-3">
-                    <p className="text-sm font-medium text-gray-900">{testimonial.author}</p>
-                    <p className="text-sm text-gray-500">{testimonial.role}</p>
-                  </div>
+              <CardContent className="pt-6">
+                <div className="mb-1">
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i} className="text-yellow-400 text-sm">★</span>
+                  ))}
                 </div>
-              </div>
-            </div>
+                <p className="text-gray-700 mt-4">"{testimonial.quote}"</p>
+              </CardContent>
+              <CardFooter className="flex items-center pt-0 border-t border-gray-100 mt-6">
+                <div className="flex-shrink-0 h-9 w-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 font-medium text-sm">
+                  {testimonial.avatar}
+                </div>
+                <div className="ml-3">
+                  <p className="text-sm font-medium text-gray-900">{testimonial.author}</p>
+                  <p className="text-xs text-gray-500">{testimonial.role}</p>
+                </div>
+              </CardFooter>
+            </Card>
           ))}
         </div>
       </div>

@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 md:gap-12 mb-12">
           <div className="col-span-2">
             <div className="text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-gray-800 to-gray-600 mb-4">
-              Notion<span className="font-light">Perplexity</span>
+              Jot<span className="font-light">It</span>
             </div>
             <p className="text-gray-600 max-w-sm">
               The all-in-one workspace for your notes, tasks, wikis, and databases.
@@ -33,7 +33,7 @@ const Footer = () => {
         
         <div className="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-gray-500">
-            © 2023 NotionPerplexity, Inc. All rights reserved.
+            © 2023 JotIt, Inc. All rights reserved.
           </p>
           
           <div className="flex space-x-6 mt-4 md:mt-0">

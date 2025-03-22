@@ -32,7 +32,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center">
           <span className="text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-gray-800 to-gray-600">
-            Notion<span className="font-light">Perplexity</span>
+            Jot<span className="font-light">It</span>
           </span>
         </div>
 

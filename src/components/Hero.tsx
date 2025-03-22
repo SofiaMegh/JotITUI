@@ -24,6 +24,15 @@ const Hero = () => {
     }
   ];
 
+  // Sidebar menu items for the dashboard preview
+  const sidebarItems = [
+    { name: "My Workspace", isActive: true },
+    { name: "Shared Projects", isActive: false },
+    { name: "Team Goals", isActive: false },
+    { name: "Knowledge Base", isActive: false },
+    { name: "Meeting Notes", isActive: false }
+  ];
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % images.length);
@@ -79,18 +88,54 @@ const Hero = () => {
               <div className="grid grid-cols-1 md:grid-cols-12 h-[400px] md:h-[500px]">
                 {/* Sidebar */}
                 <div className="hidden md:block md:col-span-3 border-r border-gray-100 p-4">
-                  <div className="space-y-4">
-                    <div className="w-full h-8 bg-black rounded-md"></div>
-                    <div className="w-full h-8 bg-gray-100 rounded-md"></div>
-                    <div className="w-full h-8 bg-gray-100 rounded-md"></div>
-                    <div className="w-full h-8 bg-gray-100 rounded-md"></div>
-                    <div className="w-full h-8 bg-gray-100 rounded-md"></div>
+                  <div className="mb-6">
+                    <h3 className="text-xs uppercase tracking-wider text-gray-500 font-medium pb-2">
+                      Workspaces
+                    </h3>
+                  </div>
+                  <div className="space-y-3">
+                    {sidebarItems.map((item, index) => (
+                      <div 
+                        key={index} 
+                        className={`w-full py-2 px-3 rounded-md flex items-center text-sm ${
+                          item.isActive 
+                            ? 'bg-black text-white font-medium' 
+                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors'
+                        }`}
+                      >
+                        <span>{item.name}</span>
+                        {item.isActive && <span className="ml-auto text-xs bg-white/20 px-1.5 py-0.5 rounded">3</span>}
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-8">
+                    <h3 className="text-xs uppercase tracking-wider text-gray-500 font-medium pb-2">
+                      Recent Activity
+                    </h3>
+                    <div className="space-y-3 mt-2">
+                      <div className="flex items-center text-xs text-gray-600">
+                        <div className="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
+                        <span>Product roadmap updated</span>
+                        <span className="ml-auto">2m ago</span>
+                      </div>
+                      <div className="flex items-center text-xs text-gray-600">
+                        <div className="w-2 h-2 bg-blue-400 rounded-full mr-2"></div>
+                        <span>New comment from Alex</span>
+                        <span className="ml-auto">18m ago</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 
                 {/* Main content with productivity images */}
                 <div className="col-span-9 p-4">
                   <div className="relative h-full overflow-hidden rounded-lg">
+                    {/* Dashboard heading */}
+                    <div className="absolute top-0 left-0 right-0 z-10 p-4 bg-gradient-to-b from-white via-white to-transparent">
+                      <h2 className="text-2xl font-bold text-gray-900">Welcome to Your Dashboard</h2>
+                      <p className="text-sm text-gray-600">Here's how your team is making progress today</p>
+                    </div>
+                    
                     {images.map((src, index) => (
                       <div
                         key={index}

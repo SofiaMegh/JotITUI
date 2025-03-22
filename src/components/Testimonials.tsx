@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/components/ui/hover-card";
 
 const testimonials = [
   {
@@ -49,7 +50,7 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <Card 
               key={index}
-              className="border border-gray-100 shadow-none hover:shadow-md transition-all duration-300 bg-white/70 backdrop-blur-sm"
+              className="border border-gray-100 shadow-none hover:shadow-md transition-all duration-300 bg-white/70 backdrop-blur-sm transform hover:-translate-y-1 hover:scale-[1.02] hover:bg-white/90"
             >
               <CardContent className="pt-6">
                 <div className="mb-1">
@@ -60,9 +61,21 @@ const Testimonials = () => {
                 <p className="text-gray-700 mt-4">"{testimonial.quote}"</p>
               </CardContent>
               <CardFooter className="flex items-center pt-0 border-t border-gray-100 mt-6">
-                <div className="flex-shrink-0 h-9 w-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 font-medium text-sm">
-                  {testimonial.avatar}
-                </div>
+                <HoverCard>
+                  <HoverCardTrigger>
+                    <div className="flex-shrink-0 h-9 w-9 rounded-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center text-gray-600 font-medium text-sm cursor-pointer hover:from-gray-200 hover:to-gray-300 transition-colors">
+                      {testimonial.avatar}
+                    </div>
+                  </HoverCardTrigger>
+                  <HoverCardContent className="w-64 p-4">
+                    <div className="flex flex-col space-y-1">
+                      <p className="text-sm font-medium">{testimonial.author}</p>
+                      <p className="text-xs text-gray-500">{testimonial.role}</p>
+                      <p className="text-xs mt-2 text-gray-600">Verified JotIt user since 2023</p>
+                    </div>
+                  </HoverCardContent>
+                </HoverCard>
+                
                 <div className="ml-3">
                   <p className="text-sm font-medium text-gray-900">{testimonial.author}</p>
                   <p className="text-xs text-gray-500">{testimonial.role}</p>

@@ -8,6 +8,21 @@ const Hero = () => {
     'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80',
     'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80',
   ];
+  
+  const usageSummaries = [
+    {
+      title: "Team collaboration at its best",
+      description: "93% of teams reported improved project clarity after one week of use."
+    },
+    {
+      title: "Boosting remote productivity",
+      description: "Remote teams save an average of 6 hours per week on information retrieval."
+    },
+    {
+      title: "Transforming idea management",
+      description: "Users organize 3× more ideas and execute 2× faster on key projects."
+    }
+  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -91,15 +106,21 @@ const Hero = () => {
                         <div className="absolute bottom-0 left-0 right-0 p-6">
                           <div className="bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-sm">
                             <h3 className="text-lg font-semibold text-gray-900">
-                              {index === 0 ? "Streamline your workflow" : 
-                               index === 1 ? "Collaborate with your team" : 
-                               "Bring your ideas to life"}
+                              {usageSummaries[index].title}
                             </h3>
                             <p className="text-sm text-gray-600 mt-1">
-                              {index === 0 ? "Everything you need in one organized space" : 
-                               index === 1 ? "Work together in real-time from anywhere" : 
-                               "Turn concepts into actionable projects"}
+                              {usageSummaries[index].description}
                             </p>
+                            <div className="mt-3 flex items-center">
+                              <div className="flex -space-x-2">
+                                {[...Array(3)].map((_, i) => (
+                                  <div key={i} className="w-7 h-7 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center text-xs font-medium text-gray-600">
+                                    {String.fromCharCode(65 + i)}
+                                  </div>
+                                ))}
+                              </div>
+                              <div className="ml-3 text-xs text-gray-500">Active now</div>
+                            </div>
                           </div>
                         </div>
                       </div>
